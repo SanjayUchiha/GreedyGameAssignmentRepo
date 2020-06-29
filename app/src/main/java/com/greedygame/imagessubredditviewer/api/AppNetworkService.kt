@@ -27,14 +27,14 @@ class AppNetworkService(val context:Context) {
 
             return loader!!
         }
-        fun gson(): Gson? {
+        private fun gson(): Gson? {
             val gsonBuilder = GsonBuilder()
             return gsonBuilder.create()
         }
-        fun gsonConverterFactory(): GsonConverterFactory? {
+    private fun gsonConverterFactory(): GsonConverterFactory? {
             return GsonConverterFactory.create(gson()!!)
         }
-        fun getOkHTTPClient():OkHttpClient{
+    private fun getOkHTTPClient():OkHttpClient{
             return OkHttpClient()
                 .newBuilder()
 //                .cache(cache(file(context)))
@@ -51,7 +51,7 @@ class AppNetworkService(val context:Context) {
 //            return file
 //        }
 
-        fun httpLoggingInterceptor(): HttpLoggingInterceptor? {
+    private fun httpLoggingInterceptor(): HttpLoggingInterceptor? {
             val httpLoggingInterceptor =
                 HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger{
                     override fun log(message: String) {
